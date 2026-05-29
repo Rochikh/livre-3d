@@ -127,51 +127,46 @@
   function drawBack(){
     const c=mkCanvas(760,1140), x=c.getContext('2d');
     x.fillStyle='#fff'; x.fillRect(0,0,760,1140);
-    const PAD=50;
-    // bandeau haut
-    x.fillStyle=RED; x.font='italic 700 34px "Helvetica Neue",Arial,sans-serif'; x.textAlign='left'; x.textBaseline='alphabetic';
-    x.fillText('Pédagogie',PAD,72); x.fillText('Formation',PAD,110);
-    for(let i=0;i<3;i++){ x.fillRect(PAD+i*14,122,9,9); }
-    csLogo(x,560,46,40);
-    x.fillStyle=RED; x.font='700 26px "Helvetica Neue",Arial,sans-serif'; x.fillText('Chronique',610,68); x.fillText('Sociale',610,94);
-    x.fillStyle='#333'; x.font='19px "Helvetica Neue",Arial,sans-serif'; x.textAlign='right';
-    x.fillText('1, rue Vaubecour - 69002 Lyon',710,128);
-    x.fillText('www.chroniquesociale.com',710,152);
+    const PAD=44;
+    x.fillStyle=RED; x.font='italic 700 28px "Helvetica Neue",Arial,sans-serif'; x.textAlign='left'; x.textBaseline='alphabetic';
+    x.fillText('Pédagogie',PAD,60); x.fillText('Formation',PAD,92);
+    for(let i=0;i<3;i++){ x.fillRect(PAD+i*14,102,9,9); }
+    csLogo(x,560,38,36);
+    x.fillStyle=RED; x.font='700 23px "Helvetica Neue",Arial,sans-serif'; x.fillText('Chronique',606,58); x.fillText('Sociale',606,82);
+    x.fillStyle='#333'; x.font='16px "Helvetica Neue",Arial,sans-serif'; x.textAlign='right';
+    x.fillText('1, rue Vaubecour - 69002 Lyon',716,112);
+    x.fillText('www.chroniquesociale.com',716,134);
     x.textAlign='left';
-    x.fillStyle=RED; roundRect(x,PAD,176,660,12,6); x.fill();
-    // l'essentiel
-    x.strokeStyle='#16110d'; x.lineWidth=4; x.strokeRect(PAD,212,42,42); x.strokeRect(PAD+9,221,24,24);
-    x.fillStyle='#16110d'; x.font='600 28px "Helvetica Neue",Arial,sans-serif'; x.fillText('l\u2019essentiel',PAD+58,243);
-    // cadre texte
-    x.strokeStyle='#5a534a'; x.lineWidth=2; roundRect(x,PAD,278,660,742,18); x.stroke();
-    const bx=PAD+30, bw=600; let y=320;
+    x.fillStyle=RED; roundRect(x,PAD,150,672,9,5); x.fill();
+    x.strokeStyle='#16110d'; x.lineWidth=4; x.strokeRect(PAD,184,38,38); x.strokeRect(PAD+8,192,22,22);
+    x.fillStyle='#16110d'; x.font='600 24px "Helvetica Neue",Arial,sans-serif'; x.fillText('l\u2019essentiel',PAD+54,213);
+    x.strokeStyle='#5a534a'; x.lineWidth=2; roundRect(x,PAD,244,672,760,16); x.stroke();
+    const bx=PAD+26, bw=620; let y=288;
     x.fillStyle='#1b1714';
-    x.textAlign='center'; x.font='700 30px "Helvetica Neue",Arial,sans-serif';
-    y=wrap(x,'Évaluer en formation à l\u2019ère de l\u2019IA générative',PAD+330,y,bw,36);
-    x.font='italic 23px Georgia,serif'; y+=2;
-    y=wrap(x,'Manuel pratique pour repenser l\u2019évaluation des apprentissages',PAD+330,y,bw,29); y+=10;
-    x.textAlign='left'; x.font='20px Georgia,serif';
+    x.textAlign='center'; x.font='700 24px "Helvetica Neue",Arial,sans-serif';
+    y=wrap(x,'Évaluer en formation à l\u2019ère de l\u2019IA générative',PAD+336,y,bw,30);
+    x.font='italic 16px Georgia,serif'; y+=4;
+    y=wrap(x,'Manuel pratique pour repenser l\u2019évaluation des apprentissages',PAD+336,y,bw,21); y+=10;
+    x.textAlign='left'; x.font='14px Georgia,serif';
     const paras=[
       '88 % des étudiantes et étudiants britanniques utilisent l\u2019IA pour leurs travaux évalués. Les détecteurs échouent. Les examens surveillés butent sur la logistique, le coût, et l\u2019épuisement. La vraie question n\u2019est plus comment empêcher l\u2019IA, mais ce que nos évaluations sont censées mesurer.',
       'Ce livre propose une réponse opérationnelle, ancrée dans quinze ans de terrain en formation professionnelle, une enquête auprès de 48 professionnel·les francophones, et plus de trois cents sources scientifiques. Il déplace le centre de gravité de l\u2019évaluation : du produit fini vers le processus documenté, de la surveillance vers la conversation, de l\u2019interdiction vers le discernement.',
       'Trois postures structurent la transformation. L\u2019IA-Résistant rend l\u2019outil structurellement inutile (oral synchrone, simulation, performance en temps réel). L\u2019IA-Collaboratif documente et évalue l\u2019usage (portfolios avec traces, journaux de bord). L\u2019IA-Formateur transforme l\u2019IA en sparring partner intellectuel (dialogue socratique, analyse critique).',
       'Quatre parties composent l\u2019ouvrage : diagnostic, fondements théoriques, méthodologie de transformation, et boîte à outils de huit fiches immédiatement applicables.'
     ];
-    for(const p of paras){ y=wrap(x,p,bx,y,bw,27); y+=4; }
-    x.font='italic 20px Georgia,serif'; x.fillText('Pour les métiers de la formation. Pour évaluer autrement.',bx,y); y+=34;
-    x.font='700 21px Georgia,serif'; x.fillText('L\u2019auteur',bx,y); y+=28;
-    x.font='20px Georgia,serif';
-    y=wrap(x,'Rochane Kherbouche est technopédagogue, docteur en physique, animateur d\u2019une communauté IA de 1000+ professionnels de la formation. Conférencier et consultant auprès d\u2019équipes pédagogiques. Préface de la professeure Christelle Lison (Université de Sherbrooke).',bx,y,bw,27);
-    // bandeau bas
-    x.fillStyle='#1b1714'; x.font='19px "Helvetica Neue",Arial,sans-serif';
-    x.fillText('ISBN : 978-2-38548-104-9',PAD,1052);
-    for(let i=0;i<46;i++){ const bw2=(i%4===0)?4:2; x.fillRect(PAD+i*5.6,1062,bw2,64); }
-    x.font='20px "Helvetica Neue",Arial,sans-serif'; x.fillText('9 782385 481049',PAD,1148-6);
-    x.font='600 20px "Helvetica Neue",Arial,sans-serif'; x.fillText('26,90 € TTC France',330,1075);
-    x.font='17px "Helvetica Neue",Arial,sans-serif'; x.fillStyle='#444';
-    x.fillText('Diffusion Sofedis',330,1100); x.fillText('Distribution Sodis',330,1122);
-    // deux QR codes
-    qr(x,560,1042,84); qr(x,664,1042,84);
+    for(const p of paras){ y=wrap(x,p,bx,y,bw,19); y+=5; }
+    x.font='italic 14px Georgia,serif'; x.fillText('Pour les métiers de la formation. Pour évaluer autrement.',bx,y); y+=26;
+    x.font='700 15px Georgia,serif'; x.fillText('L\u2019auteur',bx,y); y+=22;
+    x.font='14px Georgia,serif';
+    y=wrap(x,'Rochane Kherbouche est technopédagogue, docteur en physique, animateur d\u2019une communauté IA de 1000+ professionnels de la formation. Conférencier et consultant auprès d\u2019équipes pédagogiques. Préface de la professeure Christelle Lison (Université de Sherbrooke).',bx,y,bw,19);
+    x.fillStyle='#1b1714'; x.font='15px "Helvetica Neue",Arial,sans-serif';
+    x.fillText('ISBN : 978-2-38548-104-9',PAD,1034);
+    for(let i=0;i<44;i++){ const bw2=(i%4===0)?4:2; x.fillRect(PAD+i*5.4,1044,bw2,52); }
+    x.font='15px "Helvetica Neue",Arial,sans-serif'; x.fillText('9 782385 481049',PAD,1116);
+    x.font='600 16px "Helvetica Neue",Arial,sans-serif'; x.fillText('26,90 € TTC France',320,1050);
+    x.font='14px "Helvetica Neue",Arial,sans-serif'; x.fillStyle='#444';
+    x.fillText('Diffusion Sofedis',320,1078); x.fillText('Distribution Sodis',320,1098);
+    qr(x,560,1032,80); qr(x,652,1032,80);
     const t=new THREE.CanvasTexture(c); t.anisotropy=16; return t;
   }
   function qr(ctx,x,y,s){
@@ -260,9 +255,9 @@
   }
   btnPlay.onclick=()=>setPlay(!autoRotate);
 
-  function goTo(y){ target={x:-0.05,y:y}; setPlay(false); }
-  document.getElementById('btnCover').onclick=()=>goTo(0);
-  document.getElementById('btnBack').onclick =()=>goTo(Math.PI);
+  function goTo(y,z){ target={x:-0.05,y:y}; if(z!==undefined){ userZoom=z; applyZoom(); } setPlay(false); }
+  document.getElementById('btnCover').onclick=()=>goTo(0,0.72);
+  document.getElementById('btnBack').onclick =()=>goTo(Math.PI,0.6);
   document.getElementById('btnReset').onclick=()=>{ userZoom=1; applyZoom(); group.rotation.set(-0.07,-0.6,0); target=null; setPlay(true); };
 
   canvas.addEventListener('pointerdown',e=>{ dragging=true; target=null; px=e.clientX; py=e.clientY; canvas.setPointerCapture(e.pointerId); });
@@ -279,12 +274,12 @@
     camera.aspect=aspect; camera.updateProjectionMatrix();
     renderer.setSize(innerWidth,innerHeight);
     const half=Math.tan((32*Math.PI/180)/2);
-    const dH=(H*1.28/2)/half;
-    const dW=(1.05*1.55/2)/(half*aspect);
+    const dH=(H*1.5/2)/half;
+    const dW=(1.02*1.12/2)/(half*aspect);
     baseZ=Math.max(dH,dW);
     applyZoom();
   }
-  function applyZoom(){ camera.position.set(0,0.12,baseZ*userZoom); camera.lookAt(0,0,0); }
+  function applyZoom(){ camera.position.set(0,0,baseZ*userZoom); camera.lookAt(0,-0.16,0); }
   addEventListener('resize',fit); fit();
 
   /* ---------- Boucle ---------- */
