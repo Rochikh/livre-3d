@@ -86,7 +86,7 @@
     x.fillStyle='#fff'; x.fillRect(0,0,760,1140);
     x.fillStyle=RED; roundRect(x,70,128,475,14,7); x.fill();
     x.strokeStyle=RED; x.lineWidth=9; x.lineCap='round';
-    x.beginPath(); x.moveTo(545,135); x.quadraticCurveTo(585,135,585,175); x.lineTo(585,790); x.stroke();
+    x.beginPath(); x.moveTo(545,135); x.quadraticCurveTo(585,135,585,175); x.lineTo(585,610); x.stroke();
     // sunburst
     x.save(); x.translate(628,210);
     for(let i=0;i<9;i++){ x.save(); x.rotate((-95+i*30)*Math.PI/180); x.beginPath(); x.moveTo(0,-32); x.lineTo(0,-58); x.lineWidth=13; x.stroke(); x.restore(); }
@@ -111,8 +111,8 @@
     x.font='700 17px "Helvetica Neue",Helvetica,Arial,sans-serif'; x.fillText('r',70+pw,872);
     x.font='700 26px "Helvetica Neue",Helvetica,Arial,sans-serif'; x.fillText(' Christelle Lison',70+pw+9,884);
     // arc bas-droite + label
-    x.strokeStyle=RED; x.lineWidth=9; x.beginPath(); x.arc(361,589,209, 0.03, 1.55); x.stroke();
-    arcText(x,'Pédagogie – Formation',361,589,186,0.20,'700 22px "Helvetica Neue",Arial,sans-serif',RED);
+    x.strokeStyle=RED; x.lineWidth=9; x.beginPath(); x.arc(435,610,150, 0, 75*Math.PI/180); x.stroke();
+    arcText(x,'Pédagogie – Formation',435,610,124,0.05,'700 15px "Helvetica Neue",Arial,sans-serif',RED);
     // logo Chronique Sociale
     csLogo(x,475,948,78);
     x.fillStyle=RED; x.font='700 23px "Helvetica Neue",Arial,sans-serif'; x.textAlign='left';
@@ -184,8 +184,8 @@
     x.fillStyle='#fff'; x.fillRect(0,0,150,1140);
     x.fillStyle=RED; x.fillRect(28,90,9,960);
     x.save(); x.translate(78,570); x.rotate(Math.PI/2); x.textAlign='center'; x.textBaseline='middle'; x.fillStyle='#16110d';
-    x.font='25px "Helvetica Neue",Arial,sans-serif'; x.fillText('Rochane Kherbouche',-320,0);
-    x.font='700 30px "Helvetica Neue",Arial,sans-serif'; x.fillText('Évaluer en formation à l\u2019ère de l\u2019IA générative',30,0);
+    x.font='26px "Helvetica Neue",Arial,sans-serif'; x.fillText('Rochane Kherbouche',-400,0);
+    x.font='700 28px "Helvetica Neue",Arial,sans-serif'; x.fillText('Évaluer en formation à l\u2019ère de l\u2019IA générative',70,0);
     x.restore();
     csLogo(x,54,1042,44);
     const t=new THREE.CanvasTexture(c); t.anisotropy=16; return t;
